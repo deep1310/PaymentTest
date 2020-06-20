@@ -1,0 +1,23 @@
+package errors
+
+type RestErr struct {
+	Message string `json:"message"`
+	Code    int    `json:"code"`
+	Error   string `json:"error"`
+}
+
+func BadRequestError(msg string) *RestErr {
+	return &RestErr{
+		Message: msg,
+		Code:    400,
+		Error:   "bad_request",
+	}
+}
+
+func InternalServerError(msg string) *RestErr {
+	return &RestErr{
+		Message: msg,
+		Code:    500,
+		Error:   "internal_server_error",
+	}
+}
